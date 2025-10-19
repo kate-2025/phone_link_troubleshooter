@@ -8,6 +8,54 @@
 # It was developed because the author got a, "This app has been blocked by your system administrator" message in Phone Link on her home machine. :)
 
 
+# === Post instructions for Something went wrong 0x80860006 error ===
+
+@"
+===========================
+📱 Phone Link Recovery Guide
+===========================
+
+If you see the error:
+  "Something went wrong. Please try again later. (0x80860006)"
+when trying to pair your Android phone with Phone Link, follow these steps:
+
+1. 🧼 Clear Legacy Credentials
+   - Open Control Panel → Credential Manager → Windows Credentials
+   - Look for any entries related to Microsoft accounts or 'YourPhone'
+   - Remove them
+
+2. 🔄 Restart Phone Link
+   - Close Phone Link completely
+   - Reopen it and try clicking 'Android' again
+   - If it still fails, click 'iPhone' once to trigger a QR code, then close it
+   - This may reset the app's internal auth context
+
+3. 🔐 Confirm Microsoft Account
+   - Go to Settings → Accounts → Email & accounts
+   - Make sure you're signed in with the correct Microsoft account
+   - If not, sign out and back in
+
+4. 📲 On Your Android Phone
+   - Install 'Link to Windows' from the Play Store
+   - Sign in with the same Microsoft account
+   - Grant all permissions (notifications, camera, background data)
+
+5. 🌐 Network Tips
+   - Ensure both devices are on the same Wi-Fi network
+   - Disable VPNs or firewalls temporarily if pairing fails
+
+6. 🧪 Optional: Web-Based Pairing
+   - On your phone, visit: https://www.aka.ms/yourpc
+   - Scan the QR code shown in Phone Link (once sign-in works)
+
+If pairing still fails, reboot your PC and phone, then try again. This error is often caused by stale credentials or mismatched account tokens.
+
+— End of Recovery Guide —
+"@
+
+# === Pause for user confirmation ===
+Read-Host -Prompt "Press Enter to run the recovery script, or Ctrl+C to cancel"
+
 # === Elevation check and relaunch if needed ===
 
 if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
